@@ -16,7 +16,7 @@ def home():
 
 def run_web():
     port = int(os.getenv("PORT", "10000"))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port, use_reloader=False)
 
 threading.Thread(target=run_web, daemon=True).start()
 # --- Fin serveur web ---
@@ -37,3 +37,4 @@ async def ping(interaction: discord.Interaction):
     await interaction.response.send_message("Pong 🎈 Bot actif !")
 
 bot.run(TOKEN)
+
